@@ -47,7 +47,7 @@ class EconometricARIMA:
         self.model = None
         self.results = None
 
-def fit(self):
+    def fit(self):
         """Fit SARIMA model with automatic differencing"""
         self.model = sm.tsa.SARIMAX(self.data,
                                     order=self.order,
@@ -73,7 +73,7 @@ class EconometricVAR:
         self.model = None
         self.results = None
 
-def select_order(self):
+    def select_order(self):
         """Select optimal lag order using information criteria"""
         model = sm.tsa.VAR(self.data)
         return model.select_order(maxlags=self.maxlags)
@@ -120,7 +120,7 @@ class ErrorCorrectionModel:
         self.x = x
         self.results = None
 
-def fit(self):
+    def fit(self):
         """Fit Error Correction Model"""
         coint_reg = sm.OLS(self.y, sm.add_constant(self.x)).fit()
         residuals = coint_reg.resid
@@ -138,7 +138,7 @@ class PanelAnalysis:
         self.entity_col = entity_col
         self.time_col = time_col
 
-def fixed_effects(self, y_col, x_cols):
+    def fixed_effects(self, y_col, x_cols):
         """Estimate fixed effects model"""
         model = sm.PanelOLS.from_formula(
             f"{y_col} ~ {'+'.join(x_cols)} + EntityEffects",
@@ -158,7 +158,7 @@ def analyze_economic_indicators():
     inflation = read_csv('inflation_data.csv', parse_dates=['date'], index_col='date')
 
 
-gdp_stationary = analyze_stationarity(gdp['value'], 'GDP')
+    gdp_stationary = analyze_stationarity(gdp['value'], 'GDP')
     inf_stationary = analyze_stationarity(inflation['value'], 'Inflation')
     cointegrated = test_cointegration(gdp['value'], inflation['value'])
     if gdp_stationary and inf_stationary:
@@ -176,7 +176,7 @@ def detect_structural_breaks(series, max_breaks=5):
     """Detect structural breaks using Bai-Perron test"""
     from statsmodels.stats.diagnostic import breaks_cusumolsresid
 
-scores, pvals = breaks_cusumolsresid(series)
+    scores, pvals = breaks_cusumolsresid(series)
     return scores, pvals
 
 def seasonal_adjustment(series):

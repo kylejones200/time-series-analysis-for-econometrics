@@ -38,7 +38,7 @@ def fit_var_model(data: pd.DataFrame, maxlags: int = 4) -> VAR:
     return model.fit(maxlags=maxlags)
 
 def plot_time_series(data: pd.DataFrame, title: str, output_path: Path):
- """Plot time series """
+    """Plot time series """
     fig, ax = plt.subplots(figsize=(10, 6))
     
     for col in data.columns:
