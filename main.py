@@ -44,16 +44,16 @@ def main():
     
     if config['analysis']['adf_test']:
                 for col in data.columns:
-            result = perform_adf_test(data[col])
-            logging.info(f"{col}: ADF={result['adf_statistic']:.4f}, p-value={result['p_value']:.4f}, stationary={result['is_stationary']}")
+                    result = perform_adf_test(data[col])
+    logging.info(f"{col}: ADF={result['adf_statistic']:.4f}, p-value={result['p_value']:.4f}, stationary={result['is_stationary']}")
     
     if config['analysis']['cointegration_test']:
                 result = perform_cointegration_test(data['x'], data['y'])
-        logging.info(f"Cointegration: test_stat={result['test_statistic']:.4f}, p-value={result['p_value']:.4f}, cointegrated={result['is_cointegrated']}")
+    logging.info(f"Cointegration: test_stat={result['test_statistic']:.4f}, p-value={result['p_value']:.4f}, cointegrated={result['is_cointegrated']}")
     
     if config['analysis']['var_model']['enabled']:
                 var_result = fit_var_model(data, config['analysis']['var_model']['maxlags'])
-        logging.info(f"\n{var_result.summary()}")
+    logging.info(f"\n{var_result.summary()}")
     
     logging.info(f"Analysis complete. Figures saved to {output_dir}")
 
