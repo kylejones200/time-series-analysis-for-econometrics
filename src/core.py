@@ -37,18 +37,19 @@ def fit_var_model(data: pd.DataFrame, maxlags: int = 4) -> VAR:
     model = VAR(data)
     return model.fit(maxlags=maxlags)
 
-def plot_time_series(data: pd.DataFrame, title: str, output_path: Path):
+def plot_time_series(data: pd.DataFrame, title: str, output_path: Path, plot: bool = False):
     """Plot time series """
-    fig, ax = plt.subplots(figsize=(10, 6))
+    if plot:
+        fig, ax = plt.subplots(figsize=(10, 6))
     
-    for col in data.columns:
-        ax.plot(data.index if hasattr(data.index, '__len__') else range(len(data)),
-               data[col], label=col, linewidth=1.2)
+        for col in data.columns:
+            ax.plot(data.index if hasattr(data.index, '__len__') else range(len(data)),
+                   data[col], label=col, linewidth=1.2)
     
-    ax.set_xlabel("Time")
-    ax.set_ylabel("Value")
-    ax.legend(loc='best')
+        ax.set_xlabel("Time")
+        ax.set_ylabel("Value")
+        ax.legend(loc='best')
     
-    plt.savefig(output_path, dpi=100, bbox_inches="tight")
-    plt.close()
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
 
