@@ -23,7 +23,6 @@ def analyze_stationarity(series, name="Series"):
     """Comprehensive stationarity analysis using ADF test"""
     adf_result = adfuller(series, autolag='AIC')
     logger.info(f"Stationarity Analysis for {name}")
-    logger.info("===================================")
     logger.info(f'ADF Statistic: {adf_result[0]:.4f}')
     logger.info(f'p-value: {adf_result[1]:.4f}')
     logger.info('Critical values:')
@@ -34,7 +33,6 @@ def test_cointegration(y1, y2):
     """Test for cointegration between two time series"""
     score, pvalue, _ = coint(y1, y2)
     logger.info("Cointegration Test Results")
-    logger.info("=========================")
     logger.info(f'Test Statistic: {score:.4f}')
     logger.info(f'p-value: {pvalue:.4f}')
     return pvalue < 0.05
