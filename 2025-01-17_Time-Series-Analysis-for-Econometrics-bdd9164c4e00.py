@@ -184,5 +184,5 @@ def seasonal_adjustment(series):
 def handle_missing_economic_data(df):
     """Handle missing values in economic time series"""
     df_interp = df.interpolate(method='cubic')
-    df_filled = df_interp.fillna(method='ffill')
+    df_filled = df_interp.ffill()
     return df_filled
