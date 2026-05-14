@@ -24,6 +24,6 @@ Edit `config.yaml` to customize analysis parameters and output settings.
 
 ## Econometric Methods
 
-- **ADF Test**: Tests for unit roots and stationarity
-- **Cointegration**: Tests for long-run equilibrium relationships
-- **VAR Model**: Vector Autoregression for multivariate time series
+- ADF Test: Tests for unit roots and stationarity
+- Cointegration: Tests for long-run equilibrium relationships
+- VAR Model: Vector Autoregression for multivariate time series
