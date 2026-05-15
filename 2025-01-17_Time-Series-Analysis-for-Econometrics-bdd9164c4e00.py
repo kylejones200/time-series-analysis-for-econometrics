@@ -5,7 +5,6 @@
 from arch import arch_model
 from data_io import read_csv
 from statsmodels.tsa.stattools import adfuller, coint
-from statsmodels.tsa.vector_ar.vecm import coint_johansen
 import logging
 import numpy as np
 import pandas as pd
@@ -158,7 +157,7 @@ def analyze_economic_indicators():
 
     gdp_stationary = analyze_stationarity(gdp['value'], 'GDP')
     inf_stationary = analyze_stationarity(inflation['value'], 'Inflation')
-    cointegrated = test_cointegration(gdp['value'], inflation['value'])
+    test_cointegration(gdp['value'], inflation['value'])
     if gdp_stationary and inf_stationary:
         model = EconometricVAR(pd.concat([gdp, inflation], axis=1))
         results = model.fit()

@@ -1,9 +1,7 @@
 """Core functions for time series analysis in econometrics."""
 
-import numpy as np
 import pandas as pd
 from pathlib import Path
-from typing import Tuple
 from statsmodels.tsa.stattools import adfuller, coint
 from statsmodels.tsa.vector_ar.var_model import VAR
 import matplotlib.pyplot as plt
