@@ -27,3 +27,11 @@ Edit `config.yaml` to customize analysis parameters and output settings.
 - ADF Test: Tests for unit roots and stationarity
 - Cointegration: Tests for long-run equilibrium relationships
 - VAR Model: Vector Autoregression for multivariate time series
+
+## Disclaimer
+
+Educational/demo code only. Not financial, safety, or engineering advice. Use at your own risk. Verify results independently before any production or operational use.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
