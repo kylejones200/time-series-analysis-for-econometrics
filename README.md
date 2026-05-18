@@ -2,6 +2,10 @@
 
 This project demonstrates time series analysis methods for econometric modeling.
 
+## Business context
+
+Economic data has properties that make standard time series methods either wrong or incomplete. GDP, inflation, interest rates, and asset prices are rarely stationary. They trend, cointegrate, exhibit volatility clustering, and break structurally when policy changes. Understanding these properties — and the methods designed to handle them — is what separates rigorous economic analysis from curve fitting.
+
 ## Project Structure
 
 ```
