@@ -1,6 +1,5 @@
 # Description: Short example for Time Series Analysis for Econometrics.
 
-
 import logging
 
 import numpy as np
@@ -167,7 +166,6 @@ class PanelAnalysis:
 def analyze_economic_indicators():
     gdp = read_csv("gdp_data.csv", parse_dates=["date"], index_col="date")
     inflation = read_csv("inflation_data.csv", parse_dates=["date"], index_col="date")
-
     gdp_stationary = analyze_stationarity(gdp["value"], "GDP")
     inf_stationary = analyze_stationarity(inflation["value"], "Inflation")
     test_cointegration(gdp["value"], inflation["value"])
